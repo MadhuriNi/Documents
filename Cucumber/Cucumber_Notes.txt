@@ -1,0 +1,298 @@
+Cucumber :
+
+1. Cucumber is BDD (Behaviour Driven Development) Framework, which is used to run your automated test cases but it does not automates your test cases.
+
+2. Now, what exactly cucumber does ? it can run your test cases by driving the data from external files (Data Driven), Parametrizing the test cases (run the test cases for multiple set of inputs), Execution Controls, Hooks and Reports.
+
+3. What kind of automated test cases cucumber runs ?  Any test cases which are written in java/ruby is run by cucumber. (Web, API, Mobile,Unit Testing)
+
+4. How cucumber is best from other frameworks (Keyword, Data Driven, Hybrid) ?
+No coding is required to implement framework funtionalities. It uses Gherkin language
+
+5. What is Gherkin ? Gherkin is nothing but the language which describes the softare behaviour.Its the language to define the test cases.It is Business readable, Domain specific language
+
+6. They are 5 keywords in cucumber : Scenario, Feature, Feature File, Scenario Outline, Step Definition
+
+7. Scenario : Scenarios are nothing but Testcases. Scenarios contain steps which are equivalent to test steps. And it uses following keywords to denote them :
+
+Given, When, Then, But, And (Case Sensitive)
+
+Given : Preconditions are mentioned
+When  : User Actions
+Then  : Expected Output or Final Result
+
+In this way, test case requirement is very very clear
+
+There can be multiple pre conditions, user actions and outcomes.
+In that case we can use And keyoword (It represent positive statements) and its used if there are statements in addition to our previous steps.
+
+We can also use But keyword, if there are statements in addition to our previous steps and it represents negative statements.
+
+8. Feature : It represents Business Requirement.
+
+9. Feature File : It acts as a test suite which consists of all scenarios. It can be created with .feature extension. And scenarios belonging to specific area can be grouped in one feature file.
+
+10. Scenario Outline : Scenario Outline is nothing it comes in picture when we do parametrizing of the data.
+
+11. For starting with cucumber, we need java, eclipse and cucumber plugin 
+(Eclipse Marketplace)
+
+12. We have to create a maven project --> cucumber supports quickstart template --> 
+			 Group Id    : Package name
+             Artifact Id : Project name
+			 
+src/test/java --> will write our cucumber test cases
+
+pom.xml will need all the cucumber jars information
+
+we need 2 jars, cucumber-java and cucumber-junit
+
+
+
+13. Feature File will have multiple test scenarios, 
+    Step Defination will consists of code of Automation for those multiple test scenarios,
+	Junit Test Runner, to run the test case Test Runner will need where is the feature file located(pass the path of feature file). In short it connects the feature file with step defination
+	
+	The main terminologies of cucumber are :
+	
+	Feature File : In this we define all our test cases
+	Step Definition : how to automate these test cases will be in step defination
+	Junit Test Runner : to connect these both we will use test runner
+
+
+15. Start a project :
+
+	. Make sure you create test cases or feature files in src/test/java
+	
+	   create a package feature
+	   in that create a class Login.feature
+	
+	
+	   inside of it :
+	
+	  Feature: Title of your feature (Application Login)
+	
+		  @tag1
+			Scenario: Title of your scenario  (Home Page Default login)
+			Given I want to write a step with precondition (User is on Bank Of America login page)
+		  ##  And some other precondition
+			When I complete action  (when user logs in with username and password)
+		  ##  And some other action
+		  ##  And yet another action
+			Then I validate the outcomes (Account Summary Page appears)
+			And check more outcomes  (All the transactions are displayed)
+
+ 
+
+
+   . create package stepDefinations
+	
+			in that create a class stepDefination.java
+			
+			@Given("^  $")
+			public void aabbcc()
+			{
+			}
+			
+			
+			@When("^   $")
+			public void ddeeff()
+			{
+			}
+			
+			@Then("^   $")
+			@And("^    $")
+			
+	We can use Chrome plugin tidyGherkin to develop our stepDefinition.java file
+
+
+	. create package cucumberOptions
+	  
+	    in that create a class TestRunner.java
+		
+		@RunWith(Cucumber.class)
+        @CucumberOptions(
+		features= "src/test/java/features",
+		glue="stepDefinations"                    //package name
+		)
+			public class TestRunner {
+
+			}
+
+    . How to run it 
+	
+	    TestRunner.java --> run as junit test
+
+16. how to do parametrizing of fetaures file and then step defination
+"()"
+
+/"()/"
+
+/"([^\"]*)/"
+
+/"([^\"]*)/"
+
+The feature file will look like :
+
+ When user enters user id "5097489" and password "Chair345" and hits login
+ 
+ 
+
+In step defination we can write it as follows : 
+
+@When("^user enters user id \"([^\"]*)\" and password \"([^\"]*)\" and hits login$")
+	public void Enter_Credentials(String user, String pwd) {
+	}
+	
+	This is called parametrizing
+	
+
+	
+17. DataTable :
+
+In this we can pass the inputs in the form of DataTable : 
+
+The feature file will look like : 
+
+ When User sign up with following details
+    | Madhuri | Nirmale | madhuri.nirmale@gmail.com | India |
+	
+	
+	
+And the stepDefination will look like :
+
+@When("^User sign up with following details$")
+	public void Enter_Details(DataTable data) {
+
+		List<List<String>> obj= data.raw();
+		System.out.println(obj.get(0).get(0));
+		System.out.println(obj.get(0).get(1));
+		System.out.println(obj.get(0).get(2));
+		System.out.println(obj.get(0).get(3));
+	}
+	
+	
+18. Parametrization : 
+	
+	In Parametrization we need to use Scenario Outline and Examples.
+
+Scenario Outline: Facebook Login
+    When User login to the application with <Username> and <Password>
+    Then User clicks on login
+    And Login Page appears
+    
+    Examples:
+    | Username | Password |
+    | abc      | xyz      |
+    | def      | uvw      |
+    | ghi      | rst      |
+    | user1    | pass1    |
+    
+
+	
+	The stepDefination will look like : 
+
+    @When("^User login to the application with (.+) and (.+)$")
+    public void user_login_to_the_application_with_and(String username, String password) {
+		
+		System.out.println(username);
+		System.out.println(password);
+		System.out.print("");
+       
+    }
+
+	
+19. Tagging features in feature file : 
+
+
+   if u want to run a particular Scenario, we can run by tagging them, Your feature file will look like :
+
+
+    @SmokeTest
+    Scenario Outline: Facebook Login
+    When User login to the application with <Username> and <Password>
+    Then User clicks on login
+    And Login Page appears
+	
+	
+	and your TestRunner will look like :
+	
+	@RunWith(Cucumber.class)
+	@CucumberOptions(
+			features="src/test/java/feature",
+			glue="stepDefinations",
+			tags="@SmokeTest"
+			)
+	public class TestRunner {
+
+	}
+	
+We can also run multiple tags : tags="@SmokeTest,@RegTest"
+
+
+20. BackGround Keyword :
+
+The pre requisite scenario which needs to be run before all the scenarios is called as BackGround.
+it needs to be given in feature file as :
+
+Background:
+Given validate the browser
+WHEN delete the cookies
+Then trigger the URL
+
+
+21. Before Annotation :
+
+Before Annotation runs before every scenario
+it will be mentioned in stepDefinations Package
+
+create a new class Hooks in the package "stepDefinations"
+
+package stepDefinations;
+
+import cucumber.api.java.Before;
+
+public class Hooks {
+	
+	
+	@Before("@SmokeTest")
+	public void BeforeScenario()
+	{
+		System.out.println("Before Smoke Scenario this will run");
+	}
+	
+
+	@After("@tag1,@SmokeTest")
+	public void AfterScenario()
+	{
+		System.out.println("After smoke tag this will run");
+	}
+	
+	
+}
+
+if u r working on hooks dont use background
+
+22. Reports :
+
+for this we use :
+
+in TestRunner :
+
+plugin = {"pretty"}  --> it applies colors to your report
+plugin = {"pretty","html:target/cucumber"} --> html report and the path
+plugin= {"pretty","html:target/cucumber","json:target/cucumber.json"} --> html and json reports
+plugin= {"pretty","html:target/cucumber","json:target/cucumber.json","junit:target/cucumber.xml"} --> html, json and xml reports
+
+
+23. dryRun :
+
+dryRun is used in TestRunner to check if all the steps in scenario have the code in stepDefination
+
+dryRun=true
+
+24. monochrome :
+
+monchrome is used to get neat output on the console
+
+monochrome=true

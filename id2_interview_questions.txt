@@ -1,0 +1,81 @@
+interview questions id2 :
+
+1. How do u fit in this job position ? Describe about you current job roles
+>> To start with, My total experience in IT is around 7+ years. And with Automation is 6 years. I have been working on selenium automation from past almost 4+ y. Currently am working as senior automation engineer with FedEx based at Orlando. My job responsibalities include : 
+Participation in the requirement gathering, design and walkthrough meetings with product stakeholders, end users and software development team.
+Identifying the areas and test cases for automation
+My main responsibilty include writing and maintaining selenium automation scripts for regression as well as functional testing
+I have been involved with test scenarios in Behaviour Driven Development by using Cucumber
+Coordination with offshore team and client side people to resolve the issues.
+
+2. In selenium, how you have reduced the execution time of your code ?
+>> Selenium grid -- distributed test execution/parallel execution.
+Use only explicit waits
+Use cssSelectors as its faster
+resuse the browser instance
+run scripts in parallel
+use headless browser(HTML Unit Driver)
+prioritizing the test cases
+
+3. What are the configurations we do to the selenium tests ?
+>>1. Java Installation -- Java_Home path (Program Files)
+2. Getting eclipse -- www.eclipse.org
+3. WebDrivers (exe)
+4. TestNg (Install New Software)
+5. Maven
+
+4. How a compiler implements polymorphism ?
+>> Polymorphism literally means the capacity to take on different forms. When applied to object oriented programing language like java, it describes the languages ability to process objects of various types and classes through a single uniform interface.It was two types :
+
+Compile time polymorhism (static binding) : Method overloading
+Run time polymorphism (dynamic binding) : Method overriding
+
+Method overloading means, there are several methods present in a class having the same name but different types/parameters/order
+
+Method overriding, we create an object of the subclass and assign it to the super class. Now when we call the overridden method on the super class, then the subclass version of method is called.
+
+https://www.sitepoint.com/quick-guide-to-polymorphism-in-java/ 
+
+5. What is inheritence ?
+>> Inheritence is a mechanism in which one class aquires the properties of another class
+
+Single inheritence : Class A --> Class B (Class A is super class and Class B is sub class). Class B extends Class A
+
+https://www.guru99.com/java-class-inheritance.html
+
+6. Linear search and Binary search 
+>> A linear search scans one item at a time, without jumping to any item.
+A binary search however, cut down your search to half as soon as you find middle of a sorted list.
+
+7. How can u apply artifical intelligence to your project
+
+
+
+What all needs to be done ?
+
+ECIS and GFBO in detail (technology, framework, flow)
+Version Control : GitLab
+Java Core Concepts
+XML information
+SQA Methodology (Waterfall, Agile)
+Smoke testing, regression testing, negative testing, database impact
+documentation
+SQL
+REST API
+
+-------------------------------------------------------------------------
+ECIS is a web application which we automated in selenium.The framework we implemented in this is Page Object Model framework which is basically having the pages and the tests. The pages will be acting as the object repository which will contain the information of the webelements. The benefit about this is if the UI Changes for the page, the tests dont need to change.We used maven for building the project.Its better to maintain coz it automatically downloads the files needed at the time of building the project. for logging purpose, we used log4j (logging, tracking the application flow, debugging the application, error handling). The input for this, used to be the account numbers which we got from the stakeholders, these account numbers we read it from table from database and the end result we inserted in the tables using JDBC (Java DataBase Connectivity) which is a Java API to connect to database and execute the query on it.It uses the JDBC drivers. The version control tool we used here was GITLAB. We followed waterfall methodology in this.
+
+I have also automated a project called SEP Account Generation, where we passed the input from external data source like excel sheet and passed it to UI and at the end it generated the account number which we copied back again to the Excel. The framework used was datadriven with Maven for building the project.
+
+Cucumber : the po/ba and developers created scenarios and they recommended us to use BDD so that they can closely follow the automation code. So we implemented Cucumber with selenium.
+
+
+GFBO is a web application which we automated in selenium.The framework we implemented in this is Page Object Model framework which is basically having the pages and the tests. The pages will be acting as the object repository which will contain the information of the webelements. The benefit about this is if the UI Changes for the page, the tests dont need to change.We used maven for building the project.Its better to maintain coz it automatically downloads the files needed at the time of building the project. for logging purpose, we used log4j (logging, tracking the application flow, debugging the application, error handling). The input for this, used to be the account numbers which we got from the stakeholders, these account numbers we read it from table from database and the end result we inserted in the tables using JDBC (Java DataBase Connectivity) which is a Java API to connect to database and execute the query on it.It uses the JDBC drivers. The version control tool we used here was GITLAB. We followed agile methodology in this.We implemented Selenium grid     (distributed testing) in this project where we passed request to the nodes.
+
+
+
+ 
+
+
+                        

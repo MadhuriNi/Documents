@@ -1,0 +1,14 @@
+FedEx is an American shipping company which is one of the biggest of its kind in north America.  The company is known for its overnight shipping service and pioneering a system that could track packages and provide real-time updates on package location (to help in finding lost packages), a feature that has now been implemented by most other carrier services.
+
+FedEx Services :
+
+We basically deal with testing environment. We have the designers team who will be creating the replica of the actual shipments and on those data we will be working just to see if its behaving as expected.
+
+Firstly what happens is invoicing, it is the functionality within revenue system that will produce the accounting reports and create invoices for  shipments.Multiple systems will be taking part in it such as DLRS(Distributed Load Revenue Settlement), RevRec(Revenue Recognition), Format Distributed Settlement, RCCE(Revenue Cycle Control Engine).
+DLRS calculates the invoice amount per customer and assigns the cutomer in invoice bucket
+RPAR/IPAR loads data for shipping customers within US and maintains Package Activity records for shipments, Solar stores the invoice information for any transaction billed to US Payor
+FDS is responsible for creating and sending invoices to customers. These options are Paper, EDI, Email and Internet Billing
+
+GFBO : Global Fedex Billing Online is a web based application providing an invoicing solution for online US customers.Using the application a customer can view download invoices, track shipments using tracking id, remit payment and raise dispute over the invoices. DLRS,FDS, RPAR, SOLAR, IDEA provides data to GFBO 
+
+ECIS : Enterprise Customer Information Solution is a web based application giving information about the customers regulatory and legal info, service options and marketing info, credit card information and Revenue information like first ship date, last ship date

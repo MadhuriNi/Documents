@@ -1,0 +1,92 @@
+1. pushing code for the first time in GIT : 
+
+local --> stage --> commit --> github
+
+Git Commands :
+
+cd /c/My_Git_Local/Practise
+
+git config --global http.proxy http://ecs-devel:sabres@east.network.fedex.com:3128
+
+git init  (to create empty git folder/new local repository)
+git config user.email madhuri.nirmale@gmail.com  (to set user email)
+git add *  (Add files from local to staging)
+git status  (List the files which needs to commit)
+git commit -m "first commit" (it moves the files from stage to commit)
+git remote add origin https://github.com/MadhuriNi/Practise.git  (it tells where we have to push the code)
+git push -u origin master
+
+
+2. pulling code from the git for the first time :
+
+create a folder to download the pulled code "My_Git_Download"
+
+git clone http://........ (get the code from git)
+
+then import this code in your workspace
+
+
+3. updating the code and comiting or pushing into the git again :
+
+go to the folder where there is our code
+
+git add *
+git status
+git commit -m "this is commit from me"
+git remote add origin .....
+git push -u origin master
+
+
+
+4. how to pull code from github
+
+goto ur folder
+
+git pull origin master
+
+
+
+5.  creating the branch and updating it and then merging it
+
+git checkout -b develop (this creates the new branch and is independent of original code)
+git branch (it shows the number of branches)
+git add *
+git commit -m "am working on the develop branch"
+git push origin develop
+
+
+
+pulling the branch :
+
+git pull origin develop
+git checkout develop (it switches to the already created branch)
+
+
+merging the develop branch with master :
+
+git checkout master (goto master branch)
+git merge develop   (develop branch will be merged into the master(active branch))
+
+
+
+6. to push new changes to existing repository present in git
+
+First goto the path from where ur project was pushed to git
+ 
+ C:\My_Git_Local\Practise
+ 
+ go to eclipse and import this project in the eclipse
+ 
+ GIT_Workspace\Practise
+ 
+ 
+ so whatever changes done here
+ 
+ do 
+ 
+ Show in Local Terminal --> Git Bash
+ 
+ git add .
+ git status
+ git commit -m "adding new package"
+ git push
