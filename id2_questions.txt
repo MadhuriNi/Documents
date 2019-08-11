@@ -56,7 +56,10 @@ XPath is used to select nodes or node sets in an XML document.It can traverse bo
 
 9. What are the most comman issues u faced in selenium automation ?
 >> Sync Issue or Timeout : Sync Issues is one of the most challenging tasks in any automation tool.We can avoid this by using smart wait which is present in selenium like implicit wait, explicit wait, fuent wait.
-
+Integration with different tools : Selenium is an open source which can be used with many open source like maven, jenkins, AutoIt. so integration between all tools is sometimes a very challenging task.
+Smart Locators : We need to keep on enhancing xpath and css for script stabiltiy.
+Pop up handling : you will find random pop ups keep coming and their behavior is not persistence so we also have to take care of these unwanted pop ups
+Complex Programming : Selenium support multiple languages and in order to work we should know at least one programming language so in order to build a framework we need some expertise in a specific language.
 
 
 What all needs to be done ?

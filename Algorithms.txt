@@ -1,0 +1,30 @@
+Data Structure :
+
+A particular way of organising data in a computer so that it can be used effectively.
+
+1. Linear search : 
+arr[]={1,2,3,4,5,6,7}
+x=5
+Start with the leftmost element of the array, compare x with each element of the array
+If x matches with an element return the index else return -1
+
+2. Binary serach :
+Search the sorted array by repeatedly dividing the array in half
+Compare x with the middle element, if x matches return the mid index
+if x>mid ele, continue search in upper half or lower half
+
+3. Bubble Sort
+Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
+
+First Pass:
+( 5 1 4 2 8 ) –> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
+( 1 5 4 2 8 ) –>  ( 1 4 5 2 8 ), Swap since 5 > 4
+( 1 4 5 2 8 ) –>  ( 1 4 2 5 8 ), Swap since 5 > 2
+( 1 4 2 5 8 ) –> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+
+Second Pass:
+( 1 4 2 5 8 ) –> ( 1 4 2 5 8 )
+( 1 4 2 5 8 ) –> ( 1 2 4 5 8 ), Swap since 4 > 2
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) –>  ( 1 2 4 5 8 )
+Now, the array is already sorted, but our algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted.

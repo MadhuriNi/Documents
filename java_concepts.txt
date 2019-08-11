@@ -1,0 +1,300 @@
+1. Access Modifiers : It is used to restrict the scope of Variable,Method, Constructor, Class. 
+
+PRIVATE : The variables or methods are declared as private are accessible only in the class in which they are declared
+
+DEFAULT : When no access modifier is specified it considers as default. Accessible only in the package
+
+Protected : The variables or methods declared as protected as accessible in their package and in the subclass in other packages.
+
+Public : Accessible from anywhere within the program
+
+2. Inheritance : 
+
+One class is allowed to inherit the features of other class.
+Super class : baseclass or parent class
+Sub class : subclass or child class
+It supports the concept of reusability
+extends keyword
+
+class childclass extends parentclass
+{
+}
+
+we can create the object of childclass and access the methods of parent class
+
+Single Inheritance : Parent Class
+                           |
+						   \/
+                      Child Class
+
+MultiLevel Inheritance :Parent Class
+							|
+							\/
+						Child Class
+                            |
+                            \/                               
+                        Grand Child	
+Create the object of Grand child and use it to access parent and child class
+Java does not support multiple inheritance
+
+3. Encapsulation : 
+Wrapping up of data in a single unit
+It binds together data and method that acts upon the data
+The data in a class is hidden from other classes.Data Hiding or information hiding
+for instance : getter setter methods (private variables and public methods to access these private variables)
+
+4. Abstraction :
+Abstraction is the property by the virtue of which only the essential details are displayed to the user and unneeded details are not displayed to the user.
+Implementation hiding
+Abstract class is declared with abstract keyword
+Abstract methods are declared with abstract keyword and without any implementation
+Abstract class can have abstract and concrete methods
+If a class contains one or more abstract methods then it is declared as abstract
+There can be no object created of abstract class
+It can have parameterised constructor and default constructor is always present in it
+
+5. Polymorphism :
+Polymorphism means having many forms.
+The ability of a message to be displayed in more then one forms under different situtations is called polymorphism
+
+Compile TIME Polymorphism : Static. Achieved by operator or function overloading
+Multiple functions with same name but different parameters then these functions are called overloaded. Change in number of parameters or type of parameters
+Static int Multiply(int a, int b)
+Static int Multiply(int a,int b, int c)
+Static int Multiply(double a,double b)
+Static int Multiply(int a, double b)
+
+Operator Overloading : In java only the '+' operator can be overloaded.
++ can add two integers and can also concatenates two strings when placed in between them
+
+Runtime Polymorphism :Dynamic. Achieved by method overriding.
+
+The derived class has the method of the base class, then the method from base class is said to be overridden
+						
+class Parent{                             class child extends parent{
+void print()                                void print()
+{                                           {
+sysout("parent class");                      sysout("child class");
+}                                           }
+}                                           }
+
+							class TestPolymorphism()
+							{
+							public static void main (String args[])
+							{
+							Parent p;
+							p=new child();
+							p.print();
+							}
+							}
+  
+  o/p -> child class
+
+6. Class is the user defined blueprint from which objects are created. It defines the set of properties or methods that are common to all objects of one type. It consists below thing in order :
+
+Modifier classname superclass(if any) interfaces(if any){ body }
+
+7. Object is basic unit of object oriented programing and represents real life entities. State, Behviour, identity
+
+8. Method is collection of statements that perform some specific task and return results to caller or without returning anything.It consists of below things in order :
+
+Modifier return type name Parameterlist exceptionlist {body}
+
+9. Message Passing : Name of the object. Name of the function(message)
+
+
+10. Super Keyword : Used with Variables, Methods and Constructors.
+Super with Variables : When the base class and derived class has same variables, the base class variable is accessed by using super keyword. super.maxSpeed
+Super with methods : When the base class and derived class has same method names, the base class method is called using parent class.  super.message()
+Super with constructor : It is used to access parent class constructor. Its always the first line in constructor. super()
+
+11. This keyword : Used with Variables, Methods and Constructors.
+It is used to refer the current class object/ current class constructor. Its always the first line in the constructor. If we are not using both super and this in constructor, by default compiler will put super() as first statement. Recursive constructor invocation/call is not allowed.
+
+12. Final Keyword : Used with variables, methods and class
+Final keyword : cannot be modified
+Final methods : cannot be over ridden
+Final class : cannot be inherited
+
+13. Threads are light weight processes within the process.
+Concurrent execution of one or more parts of the program for maximum CPU utilization. Each part of such program is called as thread
+
+extending the Thread class
+implementing Runnable interface
+
+
+14. Non access modifiers in java : 
+static : variables, methods, classes, block. These can be accessed before any objects of the class are created or without ref to the objects.
+static block : it gets executed exactly once, when the class is first loaded.
+static method : accessed without creating object of the class.
+final
+abstract
+synchronized
+transient
+volatile
+native
+
+15. Java Collections :
+This collection has several useful classes which has several useful functions which makes programers task super easy.
+
+List : Ordered collection which may contain duplicates
+ArrayList is a class which implements List interface
+
+Constructors :
+ArrayList() : build empty array list
+ArrayList(int capacity) : build arraylist with intial capacity
+ArrayList(Collection c) : build arraylist intialised with elements from collection c 
+
+ArrayList<Integer> a=new ArrayList<Integer>();
+a.add("");
+a.remove("");
+a.size();
+a.isEmpty();
+a.get();
+a.indexOf();
+
+LinkedList : Each element is known as node.They are linked using pointers and addresses.
+Advantage, ease of insertion and deletion
+Disadvantage, start from the head and follow through the link to reach the node
+
+LinkedList<String> ls=new LinkedList<String>();
+ls.add("");
+ls.addLast("");
+ls.addFirst("");
+ls.add(2,"");
+ls.remove("");
+ls.remove();
+ls.removeFirst();
+ls.removeLast();
+Boolean b=ls.contains("");
+ls.size();
+
+Set : Unordered collection which does not accept duplicates
+
+HashSet, TreeSet, EmumSet
+
+HashSet<String> hs=new HashSet<String>();
+hs.add("");
+TreeSet<String> ts=new TreeSet<String>(hs); //we can sort the set by passing set as parameter to treeset
+
+[1,3,2,4,8,9,0]
+[1,3,7,5,4,0,7,5]
+Union of the set : Adding one set to the other [0,1,2,3,4,5,7,8,9] 
+union.addALL(b);
+Intersection : Retaining the common values from both the sets [0,1,3,4] intersection.retainAll(b);
+Difference : Remove all the values of one set from the other [2,8,9]
+difference.removeAll(b);
+
+EnumSet : Its high performance which is much faster then HashSet
+All elements of enum set must come from single enumeration type
+
+enum gfg
+{
+CODE, LEARN, CONTRIBUTE, QUIZE, MCQ
+}
+
+EnumSet<gfg> set1,set2,set3,set4;
+
+set1=EnumSet.of(gfg.QUIZ,gfg.LEARN);
+set2=EnumSet.complementOf(set1);
+set3=EnumSet.allOf(gfg.class);
+set4=EnumSet.range(gfg.CODE,gfg.CONTRIBUTE);
+
+HashMap : 
+
+HashMap<Integer,String> hm=new HashMap<Integer,String>();
+hm.put(0,"hello");
+hm.put(1,"hii");
+
+
+// questions
+
+16. Mutable means we can change the state of the object. Immutable means we cannot change the state of the object. String is immutable in java. Whenever a string is declared, its refrenence is created in String Constant Pool which does not allows duplicates. All the similar string objects will have only one object allocated to it. So we cannot modify string.
+
+String s="Madhu"; // creates object in SCP
+String s1=new String("Madhu"); //creates object in heap
+String s1=new String("Madhu").intern(); // refers to object in SCP and not creates new one in heap
+
+17. str="I am am learning java java"
+
+18. why do we have constructors in abstract class
+An abstract class can be extended by multiple classes. Everytime the class extends the abstract class it has to intialize the variables from abstract class which causes repetative code. So we can use constructor in one place i.e. abstract class and can use it wherever we need.
+
+19. substring in string : s.substring(8);  s.substring(8,12);
+
+20. try catch vs throws
+try block : will execute the sensitive code which will throw an exception
+catch block : is used whenever an exception is thrown in catch block
+throws : is used to specify that ur method might throw an exception / explicitly throw an exception
+
+Common method is the one which we write code for(specific programmer) that time we will use try catch
+Specific method is the one which we use inbuilt java program.That time we will use throws
+
+
+21. how can u handle multiple exception in single catch block
+
+try{
+}
+catch(ArithmeticException | ArrayIndexOutOfBoundsException e)
+	{
+		System.out.println("The Exception is : "+e);
+	}
+
+22. Difference between abstract class and interface :
+
+Interface class                                     Abstract class
+1.It has interface keyword before class  1.It has abstract keyword before class 
+2.We go for interface only when we know  2. We gor for abstract class we
+specification but not implementation        know partial implementation i.e 
+i.e it consists of only method              it consists of abstarct methods and
+declaration                                 concrete methods
+Interface emp                               Abstract class emp
+{       									{
+public abstract getSalary();					public abstract getSalary();
+public abstract getEmp();						public abstract getEmp();
+}													{
+														//implementation
+													}
+											}
+3. the class which implements interface    3. the class which extends abstract
+have to provide implemetation for all the     class does not have to provide
+methods										 implemetation for concrete methods
+4. the class which implements interface    4. the class which extends abstract
+can implement multiple inetrfaces 			  class cannot extends mutilple
+(multiple inheritence)						  abstract classes
+class A implemets emp,emp1					  class B extends emp
+5. the variables are by default 		   5. Abstarct class can have final,
+public static final. 						  non-final, static,non-static 
+And intialisation is compulsory				  variables 	 
+6. cannot have constructor.					6. can have constructor.
+Constructors are use to initialize
+non static variables  				
+
+
+21. How HashMaps work internally ?
+
+Map<String,Integer> map=new HashMap<>();
+	key    value
+				  it creates an array of buckets in memory whose size is 16
+|__|0             Each bucket is called node or linkedlist
+|__|1             map.put("abc",1);
+|__|2             abc is the key and value is 1
+|__|3			  from the key we get hashcode which in turn gives index of the
+|__|4		      bucket
+|__|5         __________________________________________________
+|__|6 -----> |_hashcode__|_key__|_value_|_address of next node_|
+|__|7         
+|__|8
+|__|9
+|__|10
+|__|11
+|__|12
+|__|13
+|__|14
+|__|15
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+isDisplayed() : it is used to verify a presence of a web element within a webpage
+isEnabled() : it is the method used to verify if the web element is enabled or displayed within the web page
+isSelected() : is used to verify the webelement is selected or not
+
+
+//*[@id="ctl00_mainContent_rbtnl_Trip"]/tbody/tr/td[2]/label
